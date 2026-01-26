@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Đặt Vé Phim - PopCine</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/pages/bookTicket.css">
+</head>
+
+<body class="booking-page">
+    <div id="header"></div>
+
+    <main class="booking-container">
+        <div class="movie-header-info">
+            <h2 id="booking-movie-title">Tên Phim Đang Chọn</h2>
+            <p>2D Phụ Đề | <span class="age-tag">T13</span></p>
+        </div>
+
+        <div class="seat-map-wrapper">
+            <div class="screen-container">
+                <div class="screen-curve"></div>
+                <p>MÀN HÌNH</p>
+            </div>
+
+            <div class="matrix-container">
+                <div class="row-labels" id="row-labels"></div>
+                <div class="seats-grid" id="seats-grid"></div>
+            </div>
+
+            <div class="seat-legend">
+                <div class="legend-item"><span class="s-box standard"></span> Ghế đơn</div>
+                <div class="legend-item"><span class="s-box vip"></span> Ghế VIP</div>
+                <div class="legend-item"><span class="s-box double"></span> Ghế đôi</div>
+                <div class="legend-item"><span class="s-box occupied"></span> Đã bán</div>
+                <div class="legend-item"><span class="s-box selecting"></span> Đang chọn</div>
+            </div>
+        </div>
+    </main>
+
+    <div class="checkout-bar">
+        <div class="checkout-content">
+            <div class="selected-info">
+                <span id="seat-names">Chưa chọn ghế</span>
+                <p>Tổng cộng: <strong id="total-price">0đ</strong></p>
+            </div>
+            <button class="btn-confirm" id="btn-checkout">Tiếp tục</button>
+        </div>
+    </div>
+    <div id="footer"></div>
+    <script src="../js/booking.js"></script>
+</body>
+
+</html>

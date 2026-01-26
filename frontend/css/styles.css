@@ -6,7 +6,7 @@
 
 :root {
     --bg-color: #050A18;
-    --sidebar-color: #0D121F;
+    --sidebar-color: #212633;
     --accent-yellow: #FFD700;
     --accent-blue: #1E90FF;
     --highlight-red: #E50914;
@@ -14,13 +14,12 @@
 }
 
 body {
-    background-color: var(--accent-blue);
+    background-color: var(--sidebar-color);
     color: var(--text-main);
     font-family: 'Montserrat', sans-serif;
 }
 
-#content {
+main {
     min-height: calc(100vh - 150px);
-    margin-top: 70px;
 
 }

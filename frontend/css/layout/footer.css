@@ -1,0 +1,40 @@
+@import "../base/variables.css";
+
+#footer {
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--color-dark);
+    gap: 30px;
+    padding: 10px 0;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 160px;
+}
+
+.footer-logo img {
+    width: 160px;
+    height: auto;
+}
+
+.footer-column h5 {
+    color: #f5b400;
+    margin-bottom: 10px;
+}
+
+.footer-column p {
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.sub-icon li {
+    list-style: none;
+    margin: 10px 0;
+}
+
+.sub-icon li a {
+    text-decoration: none;
+    color: var(--text-muted);
+}

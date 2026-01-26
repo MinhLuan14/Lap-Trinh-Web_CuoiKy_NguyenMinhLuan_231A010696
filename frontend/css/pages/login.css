@@ -1,3 +1,6 @@
+@import '../base/variables.css';
+@import '../base/reset.css';
+
 * {
     padding: 0;
     margin: 0;
@@ -8,8 +11,29 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('../assets/img/banner.png');
-    min-height: 10vh;
+    background-image: url('../../assets/img/background-login.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    min-height: 100vh;
+    position: relative;
+}
+
+.btn {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    background-color: var(--color-primary);
+    padding: 10px 10px;
+    border-radius: 5px;
+}
+
+.btn a {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 15px;
+
 }
 
 .glass-container {
@@ -34,7 +58,7 @@ body {
 
 .form-login {
     width: 380px;
-    height: 65%;
+    height: 75%;
     border-radius: 35px;
     padding: 10px;
     display: flex;
@@ -61,6 +85,10 @@ input[type="password"],
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-sizing: border-box;
     font-size: 16px;
+}
+
+.icon-social {
+    margin: 20px 0;
 }
 
 .icon-social a {
@@ -118,12 +146,13 @@ input[type="password"],
     font-weight: bold;
     font-size: 16px;
     border: none;
+    background-color: #b20710;
+    color: aliceblue;
 }
 
 .btn-login:hover {
     box-shadow: 0 0 20px rgba(255, 140, 0, 0.6);
     transform: translateY(-2px);
-    /* Nhích nhẹ lên tạo cảm giác nhấn */
     background: linear-gradient(45deg, #FF8C00, #FFD700);
 }
 

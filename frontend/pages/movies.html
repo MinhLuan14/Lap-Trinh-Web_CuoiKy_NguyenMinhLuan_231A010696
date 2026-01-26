@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>PopCine - Kho Phim</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/layout/header.css">
+    <link rel="stylesheet" href="../css/layout/footer.css">
+    <link rel="stylesheet" href="../css/pages/movies.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="../assets/icons/fontawesome-free-7.1.0-web/css/all.css">
+</head>
+
+<body>
+    <div id="header"></div>
+    <main>
+        <div class="movie-page-container">
+            <div class="hero-slider swiper">
+                <div class="swiper-wrapper" id="banner-dynamic-wrapper">
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+            <section class="filter-wrapper">
+                <div class="search-group">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="movie-search-input" placeholder="Nhập tên phim cần tìm...">
+                </div>
+
+                <div class="filter-group">
+                    <select id="country-select">
+                        <option value="">Tất cả quốc gia</option>
+
+                        <optgroup label="Châu Mỹ">
+                            <option value="US">Mỹ (USA)</option>
+                            <option value="CA">Canada</option>
+                            <option value="BR">Brazil</option>
+                            <option value="MX">Mexico</option>
+                        </optgroup>
+
+                        <optgroup label="Châu Á">
+                            <option value="VN">Việt Nam</option>
+                            <option value="KR">Hàn Quốc</option>
+                            <option value="JP">Nhật Bản</option>
+                            <option value="CN">Trung Quốc</option>
+                            <option value="HK">Hồng Kông</option>
+                            <option value="TW">Đài Loan</option>
+                            <option value="TH">Thái Lan</option>
+                            <option value="IN">Ấn Độ</option>
+                        </optgroup>
+
+                        <optgroup label="Châu Âu">
+                            <option value="GB">Anh Quốc</option>
+                            <option value="FR">Pháp</option>
+                            <option value="DE">Đức</option>
+                            <option value="ES">Tây Ban Nha</option>
+                            <option value="IT">Ý</option>
+                            <option value="RU">Nga</option>
+                        </optgroup>
+
+                        <optgroup label="Khác">
+                            <option value="AU">Australia</option>
+                            <option value="ZA">Nam Phi</option>
+                        </optgroup>
+                    </select>
+                    <select id="genre-select">
+                        <option value="">Tất cả thể loại</option>
+                        <option value="28">Hành động</option>
+                        <option value="35">Hài hước</option>
+                        <option value="27">Kinh dị</option>
+                        <option value="878">Viễn tưởng</option>
+                    </select>
+
+                    <select id="sort-select">
+                        <option value="popularity.desc">Phổ biến nhất</option>
+                        <option value="release_date.desc">Mới nhất</option>
+                        <option value="vote_average.desc">Đánh giá cao</option>
+                    </select>
+                    <div class="booking-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <select id="cinema-select">
+                            <option value="">Chọn Rạp</option>
+
+                            <optgroup label="CGV Cinemas">
+                                <option value="cgv-vincom-dong-khoi">CGV Vincom Đồng Khởi</option>
+                                <option value="cgv-su-van-hanh">CGV Sư Vạn Hạnh</option>
+                                <option value="cgv-aeon-tan-phu">CGV Aeon Tân Phú</option>
+                            </optgroup>
+
+                            <optgroup label="Lotte Cinema">
+                                <option value="lotte-cantavil">Lotte Cantavil</option>
+                                <option value="lotte-go-vap">Lotte Gò Vấp</option>
+                                <option value="lotte-nam-sai-gon">Lotte Nam Sài Gòn</option>
+                            </optgroup>
+
+                            <optgroup label="Galaxy Cinema">
+                                <option value="galaxy-nguyen-du">Galaxy Nguyễn Du</option>
+                                <option value="galaxy-tan-binh">Galaxy Tân Bình</option>
+                                <option value="galaxy-kinh-duong-vuong">Galaxy Kinh Dương Vương</option>
+                            </optgroup>
+
+                            <optgroup label="BHD Star Cineplex">
+                                <option value="bhd-bitexco">BHD Star Bitexco</option>
+                                <option value="bhd-thao-dien">BHD Star Thảo Điền</option>
+                                <option value="bhd-pham-hung">BHD Star Phạm Hùng</option>
+                            </optgroup>
+
+                            <optgroup label="Rạp địa phương / Khác">
+                                <option value="cinestar-quoc-thanh">Cinestar Quốc Thanh</option>
+                                <option value="ddc-cinema">DDC Cinema</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <section class="all-movies-section">
+                <h2 id="movie-page-title">Explore Movie Library</h2>
+                <div class="movie-grid" id="all-movies-grid">
+                </div>
+            </section>
+
+            <div class="pagination">
+                <button id="prev-btn" class="pg-btn"><i class="fas fa-chevron-left"></i> Prev</button>
+                <span id="page-number">1</span>
+                <button id="next-btn" class="pg-btn">Next <i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </main>
+    <div id="footer"></div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="../js/movies.js"></script>
+    <script src="../js/layout.js"></script>
+</body>

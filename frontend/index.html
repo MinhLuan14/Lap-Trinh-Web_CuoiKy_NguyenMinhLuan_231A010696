@@ -3,21 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="../frontend/css/styles..css">
-    <link rel="stylesheet" href="../frontend/css/header.css">
+    <link rel="stylesheet" href="./assets/icons/fontawesome-free-7.1.0-web/css/all.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/layout/header.css">
+    <link rel="stylesheet" href="./css/layout/footer.css">
+    <link rel="stylesheet" href="./css/pages/home.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <title>Movie Platform UI</title>
 </head>
 
 <body>
     <div id="header"></div>
-    <div id="content"></div>
+    <main>
+        <div class="home-container">
+            <section class="hero-banner" id="hero-slider">
+                <div class="banner-content" id="slider-content">
+                    <h1 id="slider-title">LOADING...</h1>
+                    <p id="slider-desc">Please wait a moment.</p>
+                    <button class="btn-play">
+                        <a href="/pages/bookTicket.html">BOOK TICKETS NOW <i class="fas fa-ticket-alt"></i></a>
+                    </button>
+                </div>
+                <div class="slider-dots" id="slider-dots"></div>
+            </section>
+
+            <section class="booking-wrapper">
+                <div class="booking-bar">
+                    <div class="booking-item">
+                        <i class="fas fa-film"></i>
+                        <select id="movie-select">
+                            <option value="">Select Movie</option>
+                        </select>
+                    </div>
+                    <div class="booking-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <select id="cinema-select">
+                            <option value="">Select Cinema</option>
+                        </select>
+                    </div>
+                    <div class="booking-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <input type="date" id="date-select">
+                    </div>
+                    <button class="btn-book-now"><a href="/pages/bookTicket.html">GET TICKETS</a></button>
+                </div>
+            </section>
+
+            <section class="promo-section">
+                <div class="promo-container">
+                    <div class="promo-card gold">
+                        <span>50% OFF</span>
+                        <p>For new members</p>
+                    </div>
+                    <div class="promo-card red">
+                        <span>COMBO DAY</span>
+                        <p>Free Popcorn on Wed</p>
+                    </div>
+                    <div class="promo-card blue">
+                        <span>BANK OFFER</span>
+                        <p>10% Cashback via Visa</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="movie-section">
+                <h2 class="section-title">Now Showing</h2>
+                <div class="movie-grid" id="now-showing-grid">
+                </div>
+            </section>
+
+            <section class="top-rated">
+                <h2 class="section-title">Top Rated Movies</h2>
+                <div class="movie-grid" id="top-rated-grid">
+                </div>
+            </section>
+
+            <section class="movie-section">
+                <h2 class="section-title">Coming Soon</h2>
+                <div class="movie-grid" id="coming-soon-grid">
+                </div>
+            </section>
+        </div>
+    </main>
     <div id="footer"></div>
-    <script src="../frontend/js/layout.js">
-        window.location.href = "frontend/pages/home.html";
-    </script>
+
+    <script src="./js/movies.js"></script>
+    <script src="./js/layout.js"></script>
 </body>
 
 </html>
