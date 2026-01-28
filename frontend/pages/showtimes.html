@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/icons/fontawesome-free-7.1.0-web/css/all.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/layout/header.css">
+    <link rel="stylesheet" href="../css/layout/footer.css">
+    <link rel="stylesheet" href="../css/pages/showtimes.css">
+    <title>Lịch Chiếu - Popcine</title>
+</head>
+
+<body>
+    <div id="header"></div>
+    <main id="movie-banner" class="showtimes-page">
+        <section class="selected-movie-header">
+            <div class="banner-overlay"></div>
+            <div class="movie-summary-container">
+                <img src="" alt="Poster" id="selected-movie-poster" class="summary-poster">
+                <div class="summary-info">
+                    <h1 id="selected-movie-title">Đang tải tên phim...</h1>
+                    <p id="selected-movie-desc" class="movie-meta">Thể loại | Thời lượng</p>
+                    <div class="booking-steps">
+                        <span class="step active">1. Chọn lịch chiếu</span>
+                        <i class="fas fa-chevron-right"></i>
+                        <span class="step">2. Chọn ghế & Combo</span>
+                        <i class="fas fa-chevron-right"></i>
+                        <span class="step">3. Thanh toán</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="booking-content">
+            <div class="booking-filter-section">
+                <div class="booking-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <select id="cinema-select">
+                        <option value="all">Tất cả rạp</option>
+
+                        <optgroup label="CGV Cinemas">
+                            <option value="cgv-vincom-dong-khoi">CGV Vincom Đồng Khởi</option>
+                            <option value="cgv-su-van-hanh">CGV Sư Vạn Hạnh</option>
+                            <option value="cgv-aeon-tan-phu">CGV Aeon Tân Phú</option>
+                            <option value="cgv-hung-vuong-plaza">CGV Hùng Vương Plaza</option>
+                            <option value="cgv-pearl-plaza">CGV Pearl Plaza</option>
+                        </optgroup>
+
+                        <optgroup label="Lotte Cinema">
+                            <option value="lotte-cantavil">Lotte Cantavil</option>
+                            <option value="lotte-nam-saigon">Lotte Quận 7 - Nam Sài Gòn</option>
+                            <option value="lotte-go-vap">Lotte Gò Vấp</option>
+                        </optgroup>
+
+                        <optgroup label="Galaxy Cinema">
+                            <option value="galaxy-nguyen-du">Galaxy Nguyễn Du</option>
+                            <option value="galaxy-kinh-duong-vuong">Galaxy Kinh Dương Vương</option>
+                            <option value="galaxy-tan-binh">Galaxy Tân Bình</option>
+                        </optgroup>
+
+                        <optgroup label="BHD Star">
+                            <option value="bhd-bitexco">BHD Star Bitexco</option>
+                            <option value="bhd-thao-dien">BHD Star Thảo Điền</option>
+                            <option value="bhd-3-thang-2">BHD Star 3 Tháng 2</option>
+                        </optgroup>
+
+                        <optgroup label="Khác (Cinestar, Beta, Mega GS)">
+                            <option value="cinestar-quoc-thanh">Cinestar Quốc Thanh</option>
+                            <option value="cinestar-hai-ba-trung">Cinestar Hai Bà Trưng</option>
+                            <option value="beta-quang-trung">Beta Cinemas Quang Trung</option>
+                            <option value="mega-gs-cao-thang">Mega GS Cao Thắng</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+
+            <div class="date-section">
+                <div class="date-selector" id="date-list"></div>
+            </div>
+
+            <div class="cinema-section" id="cinema-list"></div>
+            <div id="sticky-booking-bar" class="sticky-bar">
+                <div class="sticky-info">
+                    <p id="summary-cinema">Rạp chưa chọn</p>
+                    <h4 id="summary-time">Vui lòng chọn suất chiếu</h4>
+                </div>
+                <div class="bar-action">
+                    <button id="btn-go-to-seats" class="btn-select-seat">
+                        Chọn Ghế <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <div id="footer"></div>
+    <script src="../js/showtimes.js"></script>
+    <script src="../js/layout.js"></script>
+</body>
+
+</html>

@@ -37,6 +37,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         else if (pageName === "detail.html") {
             if (typeof initDetailPage === "function") initDetailPage();
+        } else if (page === "tickets.html") {
+            console.log("Kích hoạt logic Trang Vé");
+            if (typeof initTicketsPage === "function") initTicketsPage();
+            console.log("Kích hoạt logic Trang Vé");
+            if (typeof initTicketsPage === "function") initTicketsPage();;
         }
     }
 

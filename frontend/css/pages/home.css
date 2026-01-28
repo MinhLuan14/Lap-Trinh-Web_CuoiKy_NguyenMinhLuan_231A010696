@@ -84,13 +84,18 @@
 
 .btn-play {
     background-color: #E50914;
-    color: white;
+
     border: none;
     padding: 10px 25px;
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
     margin-top: 15px;
+}
+
+.btn-play a {
+    color: white;
+    text-decoration: none;
 }
 
 .movie-section {}
@@ -123,8 +128,6 @@
 
 .rating {
     margin-top: 10px;
-    background: #ffc107;
-    color: #000;
     font-weight: bold;
     padding: 2px 8px;
     border-radius: 4px;
@@ -273,7 +276,6 @@
 
 .btn-book-now {
     background: #E50914;
-    color: white;
     border: none;
     padding: 12px 25px;
     border-radius: 8px;
@@ -281,6 +283,11 @@
     cursor: pointer;
     transition: 0.3s;
     white-space: nowrap;
+}
+
+.btn-book-now a {
+    color: white;
+    text-decoration: none;
 }
 
 .btn-book-now:hover {
@@ -316,7 +323,6 @@
     transform: scale(1.03);
 }
 
-/* Các biến thể màu sắc */
 .promo-card.gold {
     background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
 }
@@ -341,7 +347,6 @@
     opacity: 0.9;
 }
 
-/* Hiệu ứng trang trí cho thẻ promo */
 .promo-card::after {
     content: '';
     position: absolute;
@@ -354,17 +359,14 @@
 }
 
 #now-showing-grid {
-    /* Đảm bảo dùng lại grid cũ của bạn */
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 25px;
 }
 
-/* Container cho Coming Soon */
 #coming-soon-grid .movie-card {
     position: relative;
     opacity: 0.9;
-    /* Hơi mờ nhẹ để tạo cảm giác "chờ đợi" */
     transition: 0.3s;
 }
 
@@ -373,7 +375,6 @@
     transform: translateY(-5px);
 }
 
-/* Nhãn "Coming Soon" đè lên poster */
 #coming-soon-grid .poster-wrapper::before {
     content: 'COMING SOON';
     position: absolute;

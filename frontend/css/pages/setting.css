@@ -1,0 +1,149 @@
+.setting-page {
+    padding: 120px 5% 60px;
+    background: #0b0f1a;
+    min-height: 100vh;
+    color: white;
+}
+
+.setting-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.page-title {
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: #fb7d08;
+}
+
+.setting-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.setting-card {
+    background: #1a1f2e;
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid #2d3446;
+}
+
+.setting-card h3 {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #2d3446;
+}
+
+.setting-item:last-child {
+    border-bottom: none;
+}
+
+.item-info span {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.item-info p {
+    font-size: 0.85rem;
+    color: #94a3b8;
+}
+
+/* Switch Toggle CSS */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #334155;
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: #fb7d08;
+}
+
+input:checked+.slider:before {
+    transform: translateX(26px);
+}
+
+.btn-action {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: 1px solid #fb7d08;
+    background: transparent;
+    color: #fb7d08;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.btn-action:hover {
+    background: #fb7d08;
+    color: white;
+}
+
+.btn-action.danger {
+    border-color: #ef4444;
+    color: #ef4444;
+}
+
+.btn-action.danger:hover {
+    background: #ef4444;
+    color: white;
+}
+
+.lang-dropdown {
+    background: #0b0f1a;
+    color: white;
+    border: 1px solid #2d3446;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+}
+
+.lang-dropdown:focus {
+    border-color: #fb7d08;
+}

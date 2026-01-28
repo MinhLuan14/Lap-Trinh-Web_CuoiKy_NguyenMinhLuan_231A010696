@@ -53,8 +53,8 @@ header.scrolled {
     position: absolute;
     top: 48px;
     left: 0px;
-    background-color: #0D121F;
-    width: 200px;
+    background-color: rgba(5, 10, 24, 0.9);
+    width: 150px;
     border-bottom-right-radius: 15px;
     list-style: none;
     padding: 10px 0;
@@ -86,8 +86,8 @@ header.scrolled {
 }
 
 #sidebar .sub-sidebar .icon-menu img {
-    width: 170px;
-    height: 140px;
+    width: 125px;
+    height: 100px;
 }
 
 #sidebar .sub-sidebar .icon-menu li i {
@@ -141,4 +141,71 @@ header.scrolled {
     transform: scale(1.05);
 
     transition: 0.3s;
+}
+
+/* --- PHẦN MẶC ĐỊNH --- */
+.mobile-only {
+    display: none;
+    /* Ẩn các mục icon bổ sung ở màn hình lớn */
+}
+
+/* --- RESPONSIVE CHO TABLET & MOBILE --- */
+
+/* 1. Màn hình dưới 1024px (Tablet) - Ẩn bớt chữ cho gọn */
+@media (max-width: 1024px) {
+    #sidebar .sub-sidebar li.nav-item {
+        margin-left: 10px;
+        font-size: 13px;
+    }
+
+    #logo-center img {
+        width: 100px;
+    }
+}
+
+/* 2. Màn hình dưới 850px - CHUYỂN TOÀN BỘ VÀO MENU ICON */
+@media (max-width: 850px) {
+
+    /* Ẩn các dòng chữ menu ngoài header */
+    .nav-item {
+        display: none;
+    }
+
+    /* Hiện các mục menu trong icon-menu */
+    .mobile-only {
+        display: block;
+    }
+
+    #sidebar .sub-sidebar .icon-menu {
+        width: 200px;
+        /* Cho menu rộng ra một chút ở mobile */
+    }
+
+    #logo-center {
+        left: 55%;
+        /* Căn chỉnh lại logo vì bên trái chỉ còn 1 icon */
+    }
+
+    #btn {
+        margin-right: 10px;
+        padding: 8px 12px;
+    }
+}
+
+/* 3. Màn hình cực nhỏ (Phone < 480px) */
+@media (max-width: 480px) {
+    #logo-center img {
+        width: 80px;
+        height: 60px;
+    }
+
+    #btn a {
+        font-size: 12px;
+    }
+
+    #sidebar .sub-sidebar .icon-menu {
+        width: 180px;
+        left: -10px;
+        /* Đẩy menu sát lề trái */
+    }
 }

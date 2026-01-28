@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/layout/footer.css">
+    <link rel="stylesheet" href="../css/layout/header.css">
+    <link rel="stylesheet" href="../css/pages/payment.css">
+    <title>Thanh Toán - Popcine</title>
+</head>
+
+<body>
+    <div id="header"></div>
+
+    <main class="payment-page">
+        <div class="payment-container">
+            <section class="payment-left">
+                <h2 class="section-title"><i class="fas fa-check-circle"></i> Bước 1: Phương thức thanh toán</h2>
+                <div class="methods-group">
+                    <div class="method-wrapper" id="wrapper-momo" onclick="selectPayment('momo')">
+                        <label class="method-label">
+                            <input type="radio" name="pay-option" id="radio-momo">
+                            <div class="method-content">
+                                <img src="../assets/img/logo_momo.jpg" alt="Momo">
+                                <span>Ví điện tử MoMo</span>
+                            </div>
+                            <i class="fas fa-chevron-down arrow"></i>
+                        </label>
+                        <div id="detail-momo" class="method-detail-content">
+                            <div class="qr-box">
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Demo" alt="QR">
+                                <p>Chọn phương thức này để nhận mã QR thanh toán ở bước sau</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="method-wrapper" id="wrapper-atm" onclick="selectPayment('atm')">
+                        <label class="method-label">
+                            <input type="radio" name="pay-option" id="radio-atm">
+                            <div class="method-content">
+                                <i class="fas fa-credit-card" style="color: #fb7d08;"></i>
+                                <span>Thẻ nội địa ATM</span>
+                            </div>
+                            <i class="fas fa-chevron-down arrow"></i>
+                        </label>
+                        <div id="detail-atm" class="method-detail-content">
+                            <div class="atm-inputs">
+                                <input type="text" placeholder="Số thẻ (16 chữ số)" class="input-field">
+                                <input type="text" placeholder="Tên chủ thẻ (KHONG DAU)" class="input-field">
+                                <div class="input-row">
+                                    <input type="text" placeholder="MM/YY" class="input-field">
+                                    <input type="password" placeholder="CVV" class="input-field">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="confirm-payment-btn" class="main-pay-btn">THANH TOÁN NGAY</button>
+            </section>
+
+            <aside class="payment-right" id="order-summary">
+            </aside>
+        </div>
+
+        <div id="momo-modal" class="payment-modal">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeModal('momo-modal')">&times;</span>
+                <img src="../assets/img/logo_momo.jpg" alt="Momo" class="modal-logo">
+                <h3>Quét mã thanh toán</h3>
+                <div class="modal-qr"><img id="dynamic-qr" src="" alt="QR"></div>
+                <p class="timer">Hết hạn sau: <span id="countdown">05:00</span></p>
+                <button class="btn-done" onclick="processSuccess()">TÔI ĐÃ CHUYỂN TIỀN</button>
+            </div>
+        </div>
+
+        <div id="otp-modal" class="payment-modal">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeModal('otp-modal')">&times;</span>
+                <i class="fas fa-shield-alt" style="font-size: 3rem; color: #fb7d08; margin-bottom: 15px;"></i>
+                <h3>Xác thực OTP</h3>
+                <p>Mã xác thực đã được gửi đến SĐT của bạn</p>
+                <input type="text" maxlength="6" placeholder="******" class="otp-input">
+                <button class="btn-done" onclick="processSuccess()">XÁC NHẬN</button>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer"></div>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="../js/payment.js"></script>
+    <script src="../js/layout.js"></script>
+</body>
+
+</html>
