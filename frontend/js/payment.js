@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function () {
         summaryBox.innerHTML = `
             <div class="error-box" style="text-align: center; padding: 20px;">
                 <p>Không tìm thấy thông tin đặt vé.</p>
-                <a href="index.html" class="btn-back" style="color: #fb7d08;">Quay lại trang chủ</a>
+                <a href="../index.html" class="btn-back" style="color: #fb7d08;">Quay lại trang chủ</a>
             </div>
         `;
         return;
