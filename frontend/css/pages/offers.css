@@ -1,0 +1,263 @@
+/* --- BIẾN TOÀN CỤC --- */
+:root {
+    --pop-orange: #fb7d08;
+    --pop-dark: #0b0f1a;
+    --pop-card-bg: #161b29;
+    --transition-smooth: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* --- TỔNG THỂ TRANG --- */
+.offers-page-wrapper {
+    background-color: var(--pop-dark);
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: #fff;
+}
+
+/* --- 1. BANNER LỚN (SLIDER) --- */
+.offers-slider {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    /* Tăng nhẹ chiều cao cho sang */
+    overflow: hidden;
+    border-bottom: 3px solid rgba(251, 125, 8, 0.3);
+}
+
+.slider-container {
+    display: flex;
+    height: 100%;
+    transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.hero-slide {
+    min-width: 100%;
+    position: relative;
+}
+
+.hero-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.75);
+    transition: 0.5s;
+}
+
+/* Nút điều hướng Slider */
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    border: none;
+    width: 50px;
+    height: 80px;
+    cursor: pointer;
+    z-index: 10;
+    transition: var(--transition-smooth);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+}
+
+.slider-nav:hover {
+    background: var(--pop-orange);
+    box-shadow: 0 0 20px rgba(251, 125, 8, 0.5);
+}
+
+.prev {
+    left: 0;
+    border-radius: 0 15px 15px 0;
+}
+
+.next {
+    right: 0;
+    border-radius: 15px 0 0 15px;
+}
+
+/* --- 2. TIÊU ĐỀ HERO --- */
+.offers-hero {
+    padding: 80px 20px 40px;
+    text-align: center;
+    background: radial-gradient(circle at center, rgba(251, 125, 8, 0.1) 0%, transparent 70%);
+}
+
+.main-glow-title {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-weight: 900;
+    margin-bottom: 15px;
+    background: linear-gradient(to right, #ffffff, var(--pop-orange), #ffffff);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine-text 3s linear infinite;
+    text-transform: uppercase;
+}
+
+.title-separator {
+    width: 80px;
+    height: 4px;
+    background: var(--pop-orange);
+    margin: 0 auto 20px;
+    border-radius: 2px;
+    box-shadow: 0 0 10px var(--pop-orange);
+}
+
+/* --- 3. BỐ CỤC 4 CỘT (CARD) --- */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.sub-glow-title {
+    margin-top: 25px;
+    font-size: 1.8rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+.offers-grid-page {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* Chuẩn 4 cột */
+    gap: 30px;
+}
+
+/* STYLE THẺ CARD */
+.offer-card-premium {
+    position: relative;
+    background: var(--pop-card-bg);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+}
+
+.offer-card-premium:hover {
+    transform: translateY(-12px);
+    border-color: var(--pop-orange);
+    box-shadow: 0 15px 35px rgba(251, 125, 8, 0.25);
+}
+
+/* Phần chứa ảnh trong Card */
+.card-image {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.offer-card-premium:hover .card-image img {
+    transform: scale(1.1);
+}
+
+/* Hiệu ứng tia sáng lướt qua Card */
+.offer-card-premium::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.15), transparent);
+    transform: skewX(-25deg);
+    transition: 0.75s;
+    pointer-events: none;
+}
+
+.offer-card-premium:hover::after {
+    left: 150%;
+}
+
+/* Nội dung dưới card */
+.card-body {
+    padding: 20px;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.btn-claim {
+    background: transparent;
+    color: var(--pop-orange);
+    border: 2px solid var(--pop-orange);
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+.offer-card-premium:hover .btn-claim {
+    background: var(--pop-orange);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(251, 125, 8, 0.4);
+}
+
+/* --- ANIMATIONS --- */
+@keyframes shine-text {
+    to {
+        background-position: 200% center;
+    }
+}
+
+/* --- RESPONSIVE (MƯỢT MÀ) --- */
+@media (max-width: 1200px) {
+    .offers-grid-page {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .offers-slider {
+        height: 400px;
+    }
+}
+
+@media (max-width: 900px) {
+    .offers-grid-page {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .main-glow-title {
+        font-size: 2.2rem;
+    }
+
+    .offers-slider {
+        height: 300px;
+    }
+}
+
+@media (max-width: 500px) {
+    .offers-grid-page {
+        grid-template-columns: 1fr;
+    }
+
+    .offers-slider {
+        height: 200px;
+    }
+
+    .slider-nav {
+        width: 40px;
+        height: 60px;
+    }
+}

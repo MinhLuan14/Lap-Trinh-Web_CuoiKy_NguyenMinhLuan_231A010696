@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/icons/fontawesome-free-7.1.0-web/css/all.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/layout/header.css">
+    <link rel="stylesheet" href="/css/layout/footer.css">
+    <link rel="stylesheet" href="/css/pages/offers.css">
+
+    <title>PopCine - Ưu đãi & Khuyến mãi</title>
+</head>
+
+<body>
+    <header id="header"></header>
+    <main class="offers-page-wrapper">
+        <section class="offers-slider">
+            <div class="slider-container" id="heroSlider">
+            </div>
+            <button class="slider-nav prev" onclick="moveHeroSlide(-1)"><i class="fas fa-chevron-left"></i></button>
+            <button class="slider-nav next" onclick="moveHeroSlide(1)"><i class="fas fa-chevron-right"></i></button>
+        </section>
+
+        <section class="container">
+            <div class="section-header">
+                <h2 class="sub-glow-title">Tất cả ưu đãi</h2>
+                <div class="title-separator"></div>
+            </div>
+            <div class="offers-grid-page" id="offersGridPage">
+            </div>
+        </section>
+    </main>
+    <footer id="footer"></footer>
+    <script src="../js/layout.js"></script>
+    <script src="../js/offer.js"></script>
+</body>
+
+</html>
