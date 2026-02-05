@@ -272,6 +272,7 @@ window.initDetailPage = async function () {
         const response = await fetch(`${BASE_URL}/movie/${movieId}?api_key=${API_KEY}&language=vi-VN&append_to_response=credits,videos`);
         const movie = await response.json();
         renderMovieDetails(movie);
+        fetchAndRenderReviews(movieId);
         if (movie.credits && movie.credits.cast) {
             renderCast(movie.credits.cast.slice(0, 10));
             setupDragToScroll('cast-list');
@@ -302,6 +303,10 @@ function renderMovieDetails(movie) {
     if (document.getElementById('detail-runtime')) document.getElementById('detail-runtime').innerText = movie.runtime + ' phút';
     if (document.getElementById('detail-genres')) document.getElementById('detail-genres').innerText = movie.genres.map(g => g.name).join(', ');
     const bookBtn = document.querySelector('.btn-book-ticket');
+    const voteCountEl = document.getElementById('detail-vote-count');
+    if (voteCountEl) {
+        voteCountEl.innerText = `(${movie.vote_count.toLocaleString()} lượt đánh giá)`;
+    }
     if (bookBtn) {
         bookBtn.addEventListener('click', function (e) {
             e.preventDefault();
@@ -364,3 +369,92 @@ function setupDragToScroll(containerId) {
         const walk = (x - startX) * 2; slider.scrollLeft = scrollLeft - walk;
     });
 }
+async function fetchAndRenderReviews(movieId) {
+    const reviewsContainer = document.getElementById('reviews-list');
+    const voteCountTop = document.getElementById('vote-count'); // Đã đổi ID cho khớp HTML của Luân
+
+    if (!reviewsContainer) return;
+
+    try {
+        const res = await fetch(`${BASE_URL}/movie/${movieId}/reviews?api_key=${API_KEY}&language=en-US&page=1`);
+        const data = await res.json();
+
+        // Cập nhật số lượt đánh giá dựa trên dữ liệu thật từ API Reviews
+        if (voteCountTop && data.total_results !== undefined) {
+            voteCountTop.innerText = data.total_results.toLocaleString();
+        }
+
+        if (!data.results || data.results.length === 0) {
+            reviewsContainer.innerHTML = `<p class="no-reviews">Chưa có bình luận nào từ cộng đồng quốc tế cho phim này.</p>`;
+            return;
+        }
+
+        reviewsContainer.innerHTML = data.results.slice(0, 4).map((rev, index) => {
+            // ... (Giữ nguyên phần xử lý Avatar của Luân) ...
+            let avatar = rev.author_details.avatar_path;
+            if (avatar) {
+                avatar = avatar.startsWith('/http') ? avatar.substring(1) :
+                    (avatar.startsWith('http') ? avatar : `https://image.tmdb.org/t/p/w200${avatar}`);
+            } else {
+                avatar = `https://ui-avatars.com/api/?name=${encodeURIComponent(rev.author)}&background=random&color=fff`;
+            }
+
+            const isLongReview = rev.content.length > 300;
+            const displayContent = isLongReview ? rev.content.substring(0, 300) + '...' : rev.content;
+
+            // GIẢI PHÁP: Thay thế các dấu nháy gây lỗi bằng mã HTML tương ứng
+            // escape() giúp biến các ký tự xuống dòng và dấu nháy thành chuỗi an toàn
+            const safeContentEscaped = escape(rev.content);
+
+            return `
+        <div class="review-card">
+            <div class="review-header">
+                <img src="${avatar}" alt="${rev.author}" class="author-img" onerror="this.src='https://via.placeholder.com/50/000/fff?text=User'">
+                <div class="author-meta">
+                    <h4 class="author-name">${rev.author}</h4>
+                    <span class="review-date">${new Date(rev.created_at).toLocaleDateString('vi-VN')}</span>
+                </div>
+                <div class="review-badge">
+                    <i class="fas fa-star"></i> ${rev.author_details.rating || 'N/A'}
+                </div>
+            </div>
+            <div class="review-body">
+                <p class="review-text" id="review-text-${index}">${displayContent}</p>
+                <div class="review-actions">
+                    ${isLongReview ? `
+                        <button class="read-more-btn" onclick="toggleReview(this, ${index}, '${safeContentEscaped}')">
+                            Xem thêm
+                        </button>` : ''}
+                    
+                    <a class="translate-btn" 
+                       href="https://translate.google.com/?sl=en&tl=vi&text=${encodeURIComponent(rev.content)}&op=translate" 
+                       target="_blank">
+                       <i class="fas fa-language"></i> Dịch sang tiếng Việt
+                    </a>
+                </div>
+            </div>
+        </div>
+    `;
+        }).join('');
+
+    } catch (err) {
+        console.error("Lỗi tải reviews:", err);
+        if (reviewsContainer) reviewsContainer.innerHTML = `<p>Không thể tải bình luận lúc này.</p>`;
+    }
+}
+// Hàm toggle đóng mở (Giữ nguyên logic của bạn)
+window.toggleReview = function (btn, index, escapedContent) {
+    const textEl = document.getElementById(`review-text-${index}`);
+    const isExpanded = btn.innerText === 'Thu gọn';
+
+    // Giải mã lại nội dung gốc
+    const fullContent = unescape(escapedContent);
+
+    if (isExpanded) {
+        textEl.innerText = fullContent.substring(0, 300) + '...';
+        btn.innerText = 'Xem thêm';
+    } else {
+        textEl.innerText = fullContent;
+        btn.innerText = 'Thu gọn';
+    }
+};

@@ -204,6 +204,166 @@
     background-color: rgba(255, 255, 255, 0.1);
 }
 
+/* Reviews Section */
+.reviews-section {
+    margin-top: 50px;
+    padding: 0 20px;
+}
+
+.reviews-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.review-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    transition: 0.3s;
+}
+
+.review-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: #fb7d08;
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.author-img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fb7d08;
+}
+
+.author-name {
+    color: #fff;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.review-date {
+    color: #777;
+    font-size: 0.8rem;
+}
+
+.review-badge {
+    margin-left: auto;
+    background: rgba(251, 125, 8, 0.15);
+    color: #fb7d08;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.review-text {
+    color: #ccc;
+    line-height: 1.6;
+    font-style: italic;
+    font-size: 0.95rem;
+}
+
+.no-reviews {
+    color: #666;
+    text-align: center;
+    padding: 40px;
+}
+
+.review-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.translate-btn {
+    color: #00aaff;
+    /* Màu xanh nhẹ cho dịch thuật */
+    font-size: 0.8rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: 0.3s;
+}
+
+.translate-btn:hover {
+    color: #55ccff;
+    text-decoration: underline;
+}
+
+.translate-btn i {
+    font-size: 1rem;
+}
+
+/* Container chứa các nút hành động dưới bình luận */
+.review-body {
+    position: relative;
+    margin-top: 10px;
+}
+
+/* Style cho nút Xem thêm / Thu gọn */
+.read-more-btn {
+    background: transparent;
+    /* Loại bỏ nền xám mặc định */
+    border: none;
+    /* Loại bỏ viền nút */
+    color: #fb7d08;
+    /* Màu cam thương hiệu PopCine */
+    padding: 0;
+    margin-top: 8px;
+    cursor: pointer;
+    /* Hiệu ứng bàn tay khi di chuột */
+    font-size: 0.9rem;
+    font-weight: 600;
+    /* Làm chữ đậm hơn một chút */
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.read-more-btn:hover {
+    color: #ff9d42;
+    /* Sáng lên khi hover */
+    text-decoration: underline;
+    /* Gạch chân để biết là có thể click */
+}
+
+/* Style cho nút Dịch (nếu Luân có thêm vào) */
+.translate-btn {
+    background: rgba(255, 255, 255, 0.05);
+    color: #00aaff;
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    margin-left: 15px;
+    text-decoration: none;
+    border: 1px solid rgba(0, 170, 255, 0.2);
+}
+
+.translate-btn:hover {
+    background: rgba(0, 170, 255, 0.1);
+}
+
+/* Căn chỉnh lại đoạn văn bản review cho dễ đọc */
+.review-text {
+    color: #ccc;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    white-space: pre-line;
+    /* Giữ các khoảng xuống dòng của người viết */
+    margin-bottom: 5px;
+}
+
 @media (max-width: 1024px) {
     #footer {
         grid-template-columns: repeat(3, 1fr);
