@@ -48,6 +48,11 @@ body {
     flex-direction: column;
 }
 
+.lb-input {
+    color: #FFD700;
+    font-weight: 600;
+}
+
 .input-group input {
     width: 100%;
     padding: 12px 15px;
@@ -66,7 +71,6 @@ body {
     justify-content: center;
     align-items: center;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
-    background-color: rgba(13, 18, 31, 0.85);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
