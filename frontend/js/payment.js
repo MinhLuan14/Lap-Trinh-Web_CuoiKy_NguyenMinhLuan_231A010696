@@ -207,3 +207,19 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 2000);
     };
 });
+document.addEventListener('DOMContentLoaded', function () {
+    const bankItems = document.querySelectorAll('.bank-item');
+
+    bankItems.forEach(item => {
+        item.addEventListener('click', function () {
+            // Xóa class selected của tất cả các ngân hàng khác
+            bankItems.forEach(i => i.classList.remove('selected'));
+
+            // Thêm class selected cho cái vừa nhấn
+            this.classList.add('selected');
+
+            // Log ra console để kiểm tra (tùy chọn)
+            console.log("Selected Bank:", this.getAttribute('title'));
+        });
+    });
+});

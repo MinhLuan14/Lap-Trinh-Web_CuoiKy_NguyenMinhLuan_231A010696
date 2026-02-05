@@ -3,22 +3,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (loginForm) {
         loginForm.addEventListener('submit', function (e) {
-            // Dòng này là "thuốc đặc trị" lỗi 405 và dấu #
             e.preventDefault();
 
             const inputEmail = document.getElementById('email').value.trim();
             const inputPassword = document.getElementById('password').value.trim();
 
-            const defaultEmail = 'luan14102005in@gmail.com';
-            const defaultPassword = 'luan14102005@';
+            const accounts = {
+                admin: {
+                    email: 'admin@gmail.com',
+                    password: 'admin123',
+                    name: 'Admin'
+                },
+                user: {
+                    email: 'kh01@gmail.com',
+                    password: '123',
+                    name: 'Khách hàng'
+                }
+            };
 
-            if (inputEmail === defaultEmail && inputPassword === defaultPassword) {
-                alert("Đăng nhập thành công!");
+            // Logic đăng nhập GIỮ NGUYÊN của Luân
+            if (inputEmail === accounts.admin.email && inputPassword === accounts.admin.password) {
+                alert(`Chào sếp ${accounts.admin.name} quay trở lại!`);
+
                 localStorage.setItem('isLoggedIn', 'true');
-                localStorage.setItem('userName', 'Luân Popcine');
+                localStorage.setItem('userRole', 'admin');
+                localStorage.setItem('userName', accounts.admin.name);
+                // Thêm dòng này để JS bên Header nhận biết
+                localStorage.setItem('userToken', 'active');
+
+                window.location.href = "../pages/admin.html";
+
+            } else if (inputEmail === accounts.user.email && inputPassword === accounts.user.password) {
+                alert("Đăng nhập thành công!");
+
+                localStorage.setItem('isLoggedIn', 'true');
+                localStorage.setItem('userRole', 'user');
+                localStorage.setItem('userName', accounts.user.name);
+                localStorage.setItem('userToken', 'active');
+
                 window.location.href = "../index.html";
+
             } else {
-                alert("Tài khoản hoặc mật khẩu không đúng!");
+                alert("Tài khoản hoặc mật khẩu không đúng! Bạn hãy thử lại nhé.");
             }
         });
     }

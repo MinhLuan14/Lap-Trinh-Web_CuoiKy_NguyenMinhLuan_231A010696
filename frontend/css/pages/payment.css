@@ -1,25 +1,20 @@
-/* Tổng quan trang - Chống bị Sidebar đè */
 .payment-page {
     padding: 110px 40px 60px 280px;
-    /* 280px là khoảng trống cho Sidebar bên trái */
     background-color: #0b0f1a;
     min-height: 100vh;
     color: #fff;
     box-sizing: border-box;
 }
 
-/* Container chính chia 2 cột */
 .payment-container {
     display: grid;
     grid-template-columns: 1fr 380px;
-    /* Cột trái giãn theo màn hình, cột phải cố định */
     gap: 30px;
     max-width: 1250px;
     margin: 0 auto;
     align-items: start;
 }
 
-/* --- PHẦN BÊN TRÁI: PHƯƠNG THỨC --- */
 .section-title {
     font-size: 1.4rem;
     margin-bottom: 25px;
@@ -64,7 +59,6 @@
 
 .method-label input {
     display: none;
-    /* Ẩn nút radio mặc định */
 }
 
 .method-content {
@@ -95,7 +89,6 @@
     color: #e50914;
 }
 
-/* Nội dung chi tiết hiện ra khi active */
 .method-detail-content {
     max-height: 0;
     overflow: hidden;
@@ -103,13 +96,15 @@
     transition: max-height 0.4s ease;
 }
 
+/* Tìm và sửa đoạn này trong CSS của bạn */
 .method-wrapper.active .method-detail-content {
-    max-height: 400px;
-    /* Độ cao tối đa khi mở */
+    max-height: 1000px;
+    /* Tăng lên để chứa đủ toàn bộ bank-grid + form */
     border-top: 1px solid #2d3446;
+    padding-bottom: 20px;
+    /* Thêm chút khoảng trống dưới cùng */
 }
 
-/* Nội dung bên trong vùng chi tiết */
 .qr-box {
     padding: 30px;
     text-align: center;
@@ -144,7 +139,6 @@
     gap: 15px;
 }
 
-/* --- PHẦN BÊN PHẢI: HÓA ĐƠN --- */
 .payment-right {
     background: #1a1f2e;
     padding: 25px;
@@ -152,7 +146,6 @@
     border: 1px solid #2d3446;
     position: sticky;
     top: 110px;
-    /* Cố định khi cuộn trang */
 }
 
 .summary-card h3 {
@@ -195,7 +188,6 @@
     font-size: 1.4rem;
 }
 
-/* Nút bấm lớn */
 .main-pay-btn {
     width: 100%;
     padding: 18px;
@@ -219,12 +211,10 @@
 @media (max-width: 1024px) {
     .payment-page {
         padding-left: 100px;
-        /* Khi Sidebar thu nhỏ */
     }
 
     .payment-container {
         grid-template-columns: 1fr;
-        /* Chuyển thành 1 cột */
     }
 
     .payment-right {
@@ -232,7 +222,6 @@
     }
 }
 
-/* Mặc định ẩn phần chi tiết */
 .method-detail-content {
     display: none;
     padding: 20px;
@@ -240,7 +229,6 @@
     border-radius: 0 0 12px 12px;
 }
 
-/* Khi có class active thì hiện ra */
 .method-detail-content.active {
     display: block;
     animation: slideDown 0.3s ease-out;
@@ -258,7 +246,6 @@
     }
 }
 
-/* Nền tối phía sau modal */
 .payment-modal {
     position: fixed;
     top: 0;
@@ -267,7 +254,6 @@
     height: 100%;
     background: rgba(0, 0, 0, 0.9);
     display: none;
-    /* Mặc định ẩn */
     justify-content: center;
     align-items: center;
     z-index: 2000;
@@ -349,7 +335,69 @@
     color: #999;
 }
 
-/* Hiệu ứng rung nhẹ khi thành công */
+.bank-selection {
+    padding: 0 25px 15px 25px;
+}
+
+.bank-selection p {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-bottom: 12px;
+}
+
+.bank-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.bank-item {
+    background: #232a3b;
+    border: 1.5px solid #343f56;
+    border-radius: 10px;
+    padding: 10px 5px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: grayscale(1);
+    opacity: 0.6;
+}
+
+.bank-item img {
+    margin-top: 10px;
+    max-width: 70%;
+    max-height: 70%;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+.bank-item:hover {
+    filter: grayscale(0);
+    opacity: 0.2;
+    border-color: #555;
+    background: #2d364d;
+    transform: translateY(-2px);
+}
+
+.bank-item.selected {
+    filter: grayscale(0);
+    opacity: 1;
+    background: #fff;
+    border-color: #e50914;
+    box-shadow: 0 0 15px rgba(229, 9, 20, 0.4);
+    transform: scale(1.05);
+}
+
+.bank-item.selected img {
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.1));
+}
+
 @keyframes successBounce {
     0% {
         transform: scale(1);
@@ -367,4 +415,66 @@
 .modal-content.success-active {
     border: 3px solid #fb7d08;
     animation: successBounce 0.5s ease;
+}
+
+/* --- RESPONSIVE CHO BANK GRID --- */
+
+/* 1. Màn hình máy tính bảng (Dưới 768px): Chuyển về 2 cột để nhìn rõ hơn */
+@media (max-width: 768px) {
+    .bank-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .bank-item {
+        height: 75px;
+        /* Giảm nhẹ chiều cao */
+    }
+
+    .payment-page {
+        padding-left: 20px;
+        /* Thu hẹp padding nếu sidebar đã ẩn */
+        padding-right: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* Đảm bảo nội dung chi tiết không bị giới hạn chiều cao quá ngặt nghèo */
+    .method-wrapper.active .method-detail-content {
+        max-height: none;
+        /* Cho phép giãn thoải mái trên mobile */
+    }
+
+    /* Thu nhỏ padding để dành chỗ cho form */
+    .atm-inputs {
+        padding: 15px;
+    }
+
+    /* Giãn cách các ô input để dễ bấm bằng tay */
+    .input-field {
+        padding: 12px;
+        margin-bottom: 10px;
+        font-size: 14px;
+    }
+
+    /* Chuyển hàng ngang (MM/YY và CVV) thành hàng dọc nếu quá chật */
+    .input-row {
+        grid-template-columns: 1fr;
+        /* Thay vì 1fr 1fr */
+        gap: 10px;
+    }
+
+    /* Giảm padding toàn trang để form to hơn */
+    .payment-page {
+        padding: 80px 15px 40px 15px;
+    }
+}
+
+/* 3. Tinh chỉnh thêm để nội dung không bị vỡ khi màn hình cực nhỏ */
+@media (max-width: 320px) {
+    .bank-grid {
+        grid-template-columns: 1fr;
+        /* 1 cột duy nhất cho máy cực nhỏ */
+    }
 }

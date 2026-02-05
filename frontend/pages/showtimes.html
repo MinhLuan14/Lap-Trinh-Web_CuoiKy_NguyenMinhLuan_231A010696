@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../css/layout/header.css">
     <link rel="stylesheet" href="../css/layout/footer.css">
     <link rel="stylesheet" href="../css/pages/showtimes.css">
-    <title>Lịch Chiếu - Popcine</title>
+    <title>Showtimes - Popcine</title>
 </head>
 
 <body>
@@ -20,14 +20,14 @@
             <div class="movie-summary-container">
                 <img src="" alt="Poster" id="selected-movie-poster" class="summary-poster">
                 <div class="summary-info">
-                    <h1 id="selected-movie-title">Đang tải tên phim...</h1>
-                    <p id="selected-movie-desc" class="movie-meta">Thể loại | Thời lượng</p>
+                    <h1 id="selected-movie-title">Loading movie title...</h1>
+                    <p id="selected-movie-desc" class="movie-meta">Genre | Duration</p>
                     <div class="booking-steps">
-                        <span class="step active">1. Chọn lịch chiếu</span>
+                        <span class="step active">1. Select Showtime</span>
                         <i class="fas fa-chevron-right"></i>
-                        <span class="step">2. Chọn ghế & Combo</span>
+                        <span class="step">2. Seats & Combo</span>
                         <i class="fas fa-chevron-right"></i>
-                        <span class="step">3. Thanh toán</span>
+                        <span class="step">3. Payment</span>
                     </div>
                 </div>
             </div>
@@ -38,7 +38,7 @@
                 <div class="booking-item">
                     <i class="fa-solid fa-location-dot"></i>
                     <select id="cinema-select">
-                        <option value="all">Tất cả rạp</option>
+                        <option value="all">All Cinemas</option>
 
                         <optgroup label="CGV Cinemas">
                             <option value="cgv-vincom-dong-khoi">CGV Vincom Đồng Khởi</option>
@@ -66,7 +66,7 @@
                             <option value="bhd-3-thang-2">BHD Star 3 Tháng 2</option>
                         </optgroup>
 
-                        <optgroup label="Khác (Cinestar, Beta, Mega GS)">
+                        <optgroup label="Others (Cinestar, Beta, Mega GS)">
                             <option value="cinestar-quoc-thanh">Cinestar Quốc Thanh</option>
                             <option value="cinestar-hai-ba-trung">Cinestar Hai Bà Trưng</option>
                             <option value="beta-quang-trung">Beta Cinemas Quang Trung</option>
@@ -81,14 +81,15 @@
             </div>
 
             <div class="cinema-section" id="cinema-list"></div>
+
             <div id="sticky-booking-bar" class="sticky-bar">
                 <div class="sticky-info">
-                    <p id="summary-cinema">Rạp chưa chọn</p>
-                    <h4 id="summary-time">Vui lòng chọn suất chiếu</h4>
+                    <p id="summary-cinema">Cinema not selected</p>
+                    <h4 id="summary-time">Please select a showtime</h4>
                 </div>
                 <div class="bar-action">
                     <button id="btn-go-to-seats" class="btn-select-seat">
-                        Chọn Ghế <i class="fas fa-arrow-right"></i>
+                        Select Seats <i class="fas fa-arrow-right"></i>
                     </button>
                 </div>
             </div>

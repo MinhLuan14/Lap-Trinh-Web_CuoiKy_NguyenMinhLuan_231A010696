@@ -71,6 +71,21 @@ window.initHomePage = async function () {
         });
     }
 };
+document.addEventListener('DOMContentLoaded', () => {
+    // Lấy quyền hạn từ LocalStorage
+    const userRole = localStorage.getItem('userRole');
+
+    // Nếu đúng là admin, thêm class 'is-admin' vào thẻ body
+    if (userRole === 'admin') {
+        document.body.classList.add('is-admin');
+
+        // Hoặc có thể hiện trực tiếp bằng ID
+        const adminBtn = document.getElementById('admin-link');
+        if (adminBtn) {
+            adminBtn.style.display = 'block';
+        }
+    }
+});
 
 /* ================= FETCH & FILTER LOGIC ================= */
 function setupFilterEvents() {

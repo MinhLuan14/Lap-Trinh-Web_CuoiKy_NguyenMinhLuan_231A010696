@@ -17,7 +17,9 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(([headerHtml, footerHtml]) => {
             document.getElementById('header').innerHTML = headerHtml;
             document.getElementById('footer').innerHTML = footerHtml;
-
+            if (typeof loadUserProfile === "function") {
+                loadUserProfile();
+            }
             setupMobileNavigation();
 
             detectAndInitPage(pageName);
@@ -68,3 +70,28 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+// Hàm cập nhật ngôn ngữ cho toàn bộ trang
+function applyLanguage() {
+    const currentLang = localStorage.getItem('preferred-lang') || 'en';
+
+    // Tìm tất cả các thẻ có thuộc tính data-key
+    const elements = document.querySelectorAll('[data-key]');
+
+    elements.forEach(el => {
+        const key = el.getAttribute('data-key');
+        if (i18n[currentLang] && i18n[currentLang][key]) {
+            // Nếu là thẻ input thì đổi placeholder, còn lại đổi textContent
+            if (el.tagName === 'INPUT') {
+                el.placeholder = i18n[currentLang][key];
+            } else {
+                el.textContent = i18n[currentLang][key];
+            }
+        }
+    });
+
+    // Cập nhật thuộc tính lang của thẻ html để tốt cho SEO
+    document.documentElement.lang = currentLang;
+}
+
+// Chạy hàm ngay khi script được load
+document.addEventListener('DOMContentLoaded', applyLanguage);

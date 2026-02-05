@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Popcine - Trang cá nhân</title>
+    <title>Popcine - My Profile</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/layout/footer.css">
@@ -20,42 +20,42 @@
             <aside class="user-sidebar">
                 <div class="user-profile">
                     <div class="avatar-wrapper">
-                        <img src="../assets/img/default-avatar.png" id="user-avatar" alt="Avatar">
+                        <img src="../assets/img/demoside.jpeg" id="user-avatar" alt="Avatar">
                         <label for="upload-avatar" class="edit-avatar"><i class="fas fa-camera"></i></label>
                         <input type="file" id="upload-avatar" hidden>
                     </div>
-                    <h2 id="display-name">Người dùng Popcine</h2>
+                    <h2 id="display-name">Popcine User</h2>
                     <p id="display-email">user@popcine.vn</p>
                 </div>
                 <nav class="user-nav">
-                    <a href="#" class="active"><i class="fas fa-user"></i> Thông tin tài khoản</a>
-                    <a href="ticket.html"><i class="fas fa-ticket-alt"></i> Vé của tôi</a>
-                    <a href="#" id="btn-logout"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
+                    <a href="#" class="active"><i class="fas fa-user"></i> Account Info</a>
+                    <a href="ticket.html"><i class="fas fa-ticket-alt"></i> My Tickets</a>
+                    <a href="#" id="btn-logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
                 </nav>
             </aside>
 
             <section class="user-content">
                 <div class="content-card">
-                    <h3>Thông tin cá nhân</h3>
+                    <h3>Personal Information</h3>
                     <form id="profile-form">
                         <div class="form-group">
-                            <label>Họ và tên</label>
-                            <input type="text" id="full-name" value="Luân Popcine">
+                            <label>Full Name</label>
+                            <input type="text" id="full-name" value="Luan Popcine">
                         </div>
                         <div class="form-group">
-                            <label>Số điện thoại</label>
+                            <label>Phone Number</label>
                             <input type="text" id="phone" value="0901234567">
                         </div>
                         <div class="form-group">
-                            <label>Email</label>
+                            <label>Email Address</label>
                             <input type="email" id="email" value="luan@example.com" disabled>
                         </div>
-                        <button type="submit" class="btn-save">Lưu thay đổi</button>
+                        <button type="submit" class="btn-save">Save Changes</button>
                     </form>
                 </div>
 
                 <div class="content-card">
-                    <h3>Giao dịch gần đây</h3>
+                    <h3>Recent Transactions</h3>
                     <div id="recent-tickets-list">
                     </div>
                 </div>

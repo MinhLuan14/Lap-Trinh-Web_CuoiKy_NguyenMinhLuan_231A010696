@@ -1,0 +1,416 @@
+/* ================= BIẾN TOÀN CỤC ================= */
+:root {
+    --primary: #f5b400;
+    --primary-hover: #ffcc33;
+    --bg-dark: #0b0f1a;
+    --card-bg: #161d2f;
+    --text: #ffffff;
+    --text-muted: #a0aec0;
+    --sidebar-width: 260px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ================= RESET HỆ THỐNG ================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+.admin-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ================= SIDEBAR (THANH ĐIỀU HƯỚNG) ================= */
+.admin-sidebar {
+    width: var(--sidebar-width);
+    background: var(--card-bg);
+    padding: 30px 15px;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    transition: var(--transition);
+}
+
+.admin-sidebar .logo {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 40px;
+    padding-left: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.admin-sidebar ul {
+    list-style: none;
+    flex: 1;
+}
+
+.admin-sidebar ul li {
+    margin-bottom: 8px;
+    width: 100%;
+}
+
+.admin-sidebar .nav-tab,
+.admin-sidebar ul li a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 12px;
+    transition: var(--transition);
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    background: transparent;
+    font-size: 15px;
+}
+
+.admin-sidebar .nav-tab:hover,
+.admin-sidebar ul li a:hover {
+    background: rgba(245, 180, 0, 0.1);
+    color: var(--primary);
+}
+
+.admin-sidebar .nav-tab.active {
+    background: var(--primary);
+    color: #000;
+}
+
+.admin-sidebar i {
+    width: 24px;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.admin-sidebar ul li:last-child {
+    margin-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 20px;
+}
+
+/* ================= NỘI DUNG CHÍNH (MAIN CONTENT) ================= */
+.admin-content {
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+/* Thẻ thống kê nhanh */
+.statistics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.stat-card {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 4px solid var(--primary);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.stat-card i {
+    font-size: 2.5rem;
+    color: var(--primary);
+}
+
+/* ================= BẢNG DỮ LIỆU ================= */
+.table-wrapper {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 25px;
+    overflow-x: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px;
+}
+
+th,
+td {
+    padding: 18px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+th {
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+}
+
+/* ================= HỆ THỐNG BIỂU ĐỒ (SỬA LỖI TRÀN) ================= */
+.charts-container {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 25px;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.chart-box {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    min-height: 420px;
+}
+
+.chart-box h3 {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.canvas-container {
+    position: relative;
+    flex-grow: 1;
+    width: 100%;
+    min-height: 300px;
+}
+
+/* ================= NÚT BẤM (BUTTONS) ================= */
+.btn-primary {
+    background: var(--primary);
+    color: #000;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(245, 180, 0, 0.3);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 22px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.btn-danger {
+    background: #ff4444;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+/* ================= HỆ THỐNG MODAL (CĂN GIỮA TUYỆT ĐỐI) ================= */
+.modal {
+    display: none;
+    /* Điều khiển bằng JS: flex/none */
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: var(--card-bg);
+    width: 95%;
+    max-width: 480px;
+    padding: 35px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+    animation: modalShow 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes modalShow {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Sửa lỗi Input trong Modal */
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    background: #0b0f1a !important;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 14px 16px;
+    border-radius: 12px;
+    color: #ffffff !important;
+    font-size: 1rem;
+    outline: none;
+    transition: var(--transition);
+}
+
+.form-group input:focus {
+    border-color: var(--primary);
+    background: #101624 !important;
+    box-shadow: 0 0 0 3px rgba(245, 180, 0, 0.1);
+}
+
+.modal-footer {
+    margin-top: 35px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1024px) {
+    .charts-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-container {
+        flex-direction: column;
+    }
+
+    .admin-sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        padding: 15px;
+    }
+
+    .admin-sidebar .logo {
+        margin-bottom: 20px;
+        text-align: center;
+        padding: 0;
+    }
+
+    .admin-sidebar ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .admin-sidebar ul li {
+        width: auto;
+        flex: 1;
+        min-width: 150px;
+        margin-bottom: 0;
+    }
+
+    .admin-content {
+        padding: 20px;
+    }
+}
+
+/* Hiệu ứng mượt cho các Section */
+.admin-section {
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#admin-panel form,
+.admin-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background: #1a2235;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 20px 0;
+    max-width: 450px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#admin-panel form input {
+    width: 100%;
+    padding: 10px;
+    background: #0d1117;
+    border: 1px solid #30363d;
+    color: white;
+    border-radius: 6px;
+}

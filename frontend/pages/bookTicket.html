@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title>Đặt Vé Phim - PopCine</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Seats - PopCine</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/pages/bookTicket.css">
@@ -14,11 +15,11 @@
 
     <main class="booking-container">
         <div class="movie-header-info">
-            <h2 id="booking-movie-title">Đang tải tên phim...</h2>
+            <h2 id="booking-movie-title">Loading movie title...</h2>
             <div class="movie-sub-info">
-                <span><i class="fas fa-map-marker-alt"></i> Galaxy Kinh Dương Vương</span>
+                <span><i class="fas fa-map-marker-alt"></i> Galaxy Kinh Duong Vuong</span>
                 <span class="divider">|</span>
-                <span>2D Phụ Đề</span>
+                <span>2D Subtitle</span>
                 <span class="age-tag">T13</span>
             </div>
         </div>
@@ -26,7 +27,7 @@
         <div class="seat-map-wrapper">
             <div class="screen-container">
                 <div class="screen-glow"></div>
-                <p class="screen-text">MÀN HÌNH</p>
+                <p class="screen-text">SCREEN</p>
             </div>
 
             <div class="matrix-outer">
@@ -36,11 +37,11 @@
                 </div>
 
                 <div class="seat-legend">
-                    <div class="legend-item"><span class="s-box standard"></span> Ghế đơn</div>
-                    <div class="legend-item"><span class="s-box vip"></span> Ghế VIP</div>
-                    <div class="legend-item"><span class="s-box double"></span> Ghế đôi</div>
-                    <div class="legend-item"><span class="s-box occupied"></span> Đã bán</div>
-                    <div class="legend-item"><span class="s-box selecting"></span> Đang chọn</div>
+                    <div class="legend-item"><span class="s-box standard"></span> Standard</div>
+                    <div class="legend-item"><span class="s-box vip"></span> VIP</div>
+                    <div class="legend-item"><span class="s-box double"></span> Sweetbox</div>
+                    <div class="legend-item"><span class="s-box occupied"></span> Occupied</div>
+                    <div class="legend-item"><span class="s-box selecting"></span> Selecting</div>
                 </div>
             </div>
         </div>
@@ -50,16 +51,16 @@
         <div class="checkout-content">
             <div class="selected-summary">
                 <div class="info-group">
-                    <label>Ghế đã chọn:</label>
-                    <span id="seat-names">Chưa có</span>
+                    <label>Selected Seats:</label>
+                    <span id="seat-names">None</span>
                 </div>
                 <div class="info-group">
-                    <label>Tổng tiền:</label>
-                    <span id="total-price">0đ</span>
+                    <label>Total Price:</label>
+                    <span id="total-price">0 VND</span>
                 </div>
             </div>
             <button class="btn-confirm" id="btn-checkout" disabled>
-                Tiếp tục <i class="fas fa-chevron-right"></i>
+                Continue <i class="fas fa-chevron-right"></i>
             </button>
         </div>
     </div>

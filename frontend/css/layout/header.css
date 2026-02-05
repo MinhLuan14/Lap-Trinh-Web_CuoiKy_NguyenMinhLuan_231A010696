@@ -1,3 +1,11 @@
+#admin-link {
+    display: none !important;
+}
+
+.is-admin #admin-link {
+    display: block !important;
+}
+
 header {
     height: 70px;
     background-color: transparent !important;
@@ -47,17 +55,17 @@ header.scrolled {
     text-decoration: none;
     color: #ffff;
     font-weight: bold;
+    font-size: 15px;
 }
 
 #sidebar .sub-sidebar .icon-menu {
     position: absolute;
     top: 48px;
     left: 0px;
-    background-color: rgba(5, 10, 24, 0.9);
-    width: 150px;
+    background-color: #212633;
+    width: 130px;
     border-bottom-right-radius: 15px;
     list-style: none;
-    padding: 10px 0;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     opacity: 0;
     visibility: hidden;
@@ -75,7 +83,6 @@ header.scrolled {
 }
 
 #sidebar .sub-sidebar .icon-menu li {
-    padding: 0 10px;
     align-items: center;
     width: 100%;
     margin-bottom: 10px
@@ -97,9 +104,8 @@ header.scrolled {
     color: #fff;
 }
 
-#sidebar .sub-sidebar li i:hover {
+#sidebar .sub-sidebar li a:hover {
     color: #FFD700;
-    /* Màu vàng từ logo */
     text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
     transform: scale(1.2);
 }
@@ -119,7 +125,7 @@ header.scrolled {
 }
 
 
-#btn {
+#btn-login-wrapper {
     float: right;
     margin-right: 20px;
     padding: 10px 15px;
@@ -130,28 +136,23 @@ header.scrolled {
     color: linear-gradient(to right, #FFD700, #FF8C00);
 }
 
-#btn a {
+#btn-login-wrapper a {
     padding: auto;
     text-decoration: none;
     color: #FFD700;
 }
 
-#btn button a:hover {
+#btn-login-wrapper button a:hover {
     background: #FFD700;
     transform: scale(1.05);
 
     transition: 0.3s;
 }
 
-/* --- PHẦN MẶC ĐỊNH --- */
 .mobile-only {
     display: none;
-    /* Ẩn các mục icon bổ sung ở màn hình lớn */
 }
 
-/* --- RESPONSIVE CHO TABLET & MOBILE --- */
-
-/* 1. Màn hình dưới 1024px (Tablet) - Ẩn bớt chữ cho gọn */
 @media (max-width: 1024px) {
     #sidebar .sub-sidebar li.nav-item {
         margin-left: 10px;
@@ -163,27 +164,18 @@ header.scrolled {
     }
 }
 
-/* 2. Màn hình dưới 850px - CHUYỂN TOÀN BỘ VÀO MENU ICON */
 @media (max-width: 850px) {
 
-    /* Ẩn các dòng chữ menu ngoài header */
     .nav-item {
         display: none;
     }
 
-    /* Hiện các mục menu trong icon-menu */
     .mobile-only {
         display: block;
     }
 
     #sidebar .sub-sidebar .icon-menu {
         width: 200px;
-        /* Cho menu rộng ra một chút ở mobile */
-    }
-
-    #logo-center {
-        left: 55%;
-        /* Căn chỉnh lại logo vì bên trái chỉ còn 1 icon */
     }
 
     #btn {
@@ -192,20 +184,109 @@ header.scrolled {
     }
 }
 
-/* 3. Màn hình cực nhỏ (Phone < 480px) */
 @media (max-width: 480px) {
-    #logo-center img {
-        width: 80px;
+    header {
         height: 60px;
+        /* Giảm chiều cao header một chút */
     }
 
-    #btn a {
-        font-size: 12px;
+    #logo-center img {
+        width: 70px;
+        /* Logo nhỏ hơn nữa trên điện thoại */
+    }
+
+    /* Ẩn bớt tên người dùng, chỉ hiện avatar để tránh đè logo */
+    #display-name-nav {
+        display: none;
+    }
+
+    #user-profile-nav {
+        padding: 0;
     }
 
     #sidebar .sub-sidebar .icon-menu {
-        width: 180px;
-        left: -10px;
-        /* Đẩy menu sát lề trái */
+        top: 40px;
+        /* Khớp với chiều cao header mới */
     }
+}
+
+#user-profile-nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 50px;
+    transition: var(--transition);
+}
+
+#user-profile-nav:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-avatar-wrapper {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--primary);
+}
+
+.nav-avatar-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#display-name-nav {
+    font-weight: 600;
+    color: var(--text);
+    font-size: 14px;
+}
+
+.admin-section form {
+    clear: both;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: 40px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.admin-section form input {
+    background: #0b0f1a !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: white !important;
+    padding: 12px;
+    border-radius: 8px;
+    outline: none;
+}
+
+.admin-section form input:focus {
+    border-color: var(--primary) !important;
+}
+
+#user-profile-nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatar-box {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #f5b400;
+}
+
+#nav-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }

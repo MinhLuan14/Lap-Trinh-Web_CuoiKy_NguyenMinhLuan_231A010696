@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Popcine</title>
+    <link rel="stylesheet" href="../css/pages/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="admin-container">
+        <aside class="admin-sidebar">
+            <div class="logo">POPCINE ADMIN</div>
+            <nav>
+                <ul>
+                    <li class="nav-tab active" data-target="dashboard-section"><i class="fa-solid fa-chart-line"></i>
+                        Tổng quan</li>
+                    <li class="nav-tab" data-target="movie-section"><i class="fa-solid fa-film"></i> Quản lý phim</li>
+                    <li class="">
+                        <a href="../index.html">
+                            <i class="fa-solid fa-house"></i> Quay lại Web
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="admin-content">
+            <section id="dashboard-section" class="admin-section">
+                <header>
+                    <h2>Phân tích & Báo cáo</h2>
+                    <div class="header-actions">
+                        <button class="btn-secondary"><i class="fa-solid fa-download"></i> Xuất báo cáo</button>
+                    </div>
+                </header>
+
+                <div class="statistics-grid">
+                    <div class="stat-card">
+                        <i class="fa-solid fa-clapperboard"></i>
+                        <div>
+                            <h3 id="stat-total-movies">0</h3>
+                            <p>Bộ phim</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fa-solid fa-sack-dollar"></i>
+                        <div>
+                            <h3>$42,500</h3>
+                            <p>Doanh thu tháng</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fa-solid fa-users"></i>
+                        <div>
+                            <h3>1,240</h3>
+                            <p>Thành viên</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="charts-container">
+                    <div class="chart-box">
+                        <h3><i class="fa-solid fa-chart-column"></i> Doanh thu hàng tuần</h3>
+                        <div class="canvas-container">
+                            <canvas id="revenueChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-box">
+                        <h3><i class="fa-solid fa-chart-pie"></i> Cơ cấu thể loại</h3>
+                        <div class="canvas-container">
+                            <canvas id="genreChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="movie-section" class="admin-section" style="display: none;">
+                <header>
+                    <h2>Danh sách phim nội bộ</h2>
+                    <button id="btn-add-movie" class="btn-primary"><i class="fa-solid fa-plus"></i> Thêm phim
+                        mới</button>
+                </header>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Poster</th>
+                                <th>Tên phim</th>
+                                <th>Thể loại</th>
+                                <th>Điểm</th>
+                                <th>Hành động</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-movie-list">
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="movie-modal" class="modal">
+        <div class="modal-content">
+            <h3 id="modal-title">Thêm phim mới</h3>
+            <form id="movie-form">
+                <input type="hidden" id="movie-id">
+                <div class="form-group">
+                    <label>Tên phim</label>
+                    <input type="text" id="title" required>
+                </div>
+                <div class="form-group">
+                    <label>Link Poster (URL)</label>
+                    <input type="text" id="poster" required>
+                </div>
+                <div class="form-group">
+                    <label>Điểm số</label>
+                    <input type="number" step="0.1" id="rating" required>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" id="btn-close" class="btn-secondary">Hủy</button>
+                    <button type="submit" class="btn-primary">Lưu lại</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/admin.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', initAdminPage);
+    </script>
+</body>
+
+</html>

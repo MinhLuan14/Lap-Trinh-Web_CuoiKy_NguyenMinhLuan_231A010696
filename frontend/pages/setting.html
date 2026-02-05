@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Popcine - Cài đặt</title>
+    <title>Popcine - Settings</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/layout/footer.css">
@@ -17,15 +17,15 @@
 
     <main class="setting-page">
         <div class="setting-container">
-            <h1 class="page-title"><i class="fas fa-cog"></i> Cài đặt hệ thống</h1>
+            <h1 class="page-title"><i class="fas fa-cog"></i> <span data-key="sys-settings">System Settings</span></h1>
 
             <div class="setting-grid">
                 <section class="setting-card">
-                    <h3><i class="fas fa-paint-brush"></i> Giao diện</h3>
+                    <h3><i class="fas fa-paint-brush"></i> <span data-key="appearance">Appearance</span></h3>
                     <div class="setting-item">
                         <div class="item-info">
-                            <span>Chế độ tối (Dark Mode)</span>
-                            <p>Tiết kiệm pin và bảo vệ mắt</p>
+                            <span data-key="dark-mode">Dark Mode</span>
+                            <p data-key="dark-mode-desc">Save battery and protect your eyes</p>
                         </div>
                         <label class="switch">
                             <input type="checkbox" id="dark-mode-toggle" checked>
@@ -35,45 +35,39 @@
                 </section>
 
                 <section class="setting-card">
-                    <h3><i class="fas fa-bell"></i> Thông báo</h3>
+                    <h3><i class="fas fa-bell"></i> <span data-key="notifications">Notifications</span></h3>
                     <div class="setting-item">
                         <div class="item-info">
-                            <span>Thông báo đẩy</span>
-                            <p>Nhận tin nhắn về phim mới và khuyến mãi</p>
+                            <span data-key="push-notif">Push Notifications</span>
+                            <p data-key="push-notif-desc">Get alerts for new movies and promos</p>
                         </div>
                         <label class="switch">
                             <input type="checkbox" id="notify-push" checked>
                             <span class="slider"></span>
                         </label>
                     </div>
-                    <div class="setting-item">
-                        <div class="item-info">
-                            <span>Email Marketing</span>
-                            <p>Gửi bản tin hàng tuần qua email</p>
-                        </div>
-                        <label class="switch">
-                            <input type="checkbox" id="notify-email">
-                            <span class="slider"></span>
-                        </label>
-                    </div>
                 </section>
+
                 <section class="setting-card">
-                    <h3><i class="fas fa-language"></i> <span data-key="language">Ngôn ngữ</span></h3>
+                    <h3><i class="fas fa-language"></i> <span data-key="language">Language</span></h3>
                     <div class="setting-item">
                         <div class="item-info">
-                            <span data-key="language">Ngôn ngữ hiển thị</span>
-                            <p>Chọn ngôn ngữ bạn muốn sử dụng</p>
+                            <span data-key="display-lang">Display Language</span>
+                            <p data-key="display-lang-desc">Choose your preferred language</p>
                         </div>
                         <select id="language-select" class="lang-dropdown">
-                            <option value="vi">Tiếng Việt</option>
                             <option value="en">English</option>
+                            <option value="vi">Tiếng Việt</option>
                         </select>
                     </div>
                 </section>
+
                 <section class="setting-card">
-                    <h3><i class="fas fa-shield-alt"></i> Bảo mật</h3>
-                    <button class="btn-action" onclick="changePassword()">Đổi mật khẩu</button>
-                    <button class="btn-action danger" onclick="deleteAccount()">Xóa tài khoản</button>
+                    <h3><i class="fas fa-shield-alt"></i> <span data-key="security">Privacy & Security</span></h3>
+                    <button class="btn-action" onclick="changePassword()" data-key="change-pass">Change
+                        Password</button>
+                    <button class="btn-action danger" onclick="deleteAccount()" data-key="delete-acc">Delete
+                        Account</button>
                 </section>
             </div>
         </div>

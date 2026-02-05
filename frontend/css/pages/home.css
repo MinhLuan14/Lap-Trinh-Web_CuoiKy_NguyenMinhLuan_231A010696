@@ -396,3 +396,90 @@
     background: #333;
     cursor: not-allowed;
 }
+
+@media (max-width: 768px) {
+
+    /* 1. Banner: Margin 2 bên 20px và bo tròn nhỏ lại */
+    .hero-banner {
+        margin: 70px 20px 0 20px;
+        /* Top 60px, Right 20px, Bottom 0, Left 20px */
+        height: 400px;
+        /* Giảm chiều cao banner trên mobile */
+        border-radius: 20px;
+    }
+
+    .hero-banner::before {
+        border-radius: 20px;
+    }
+
+    /* Thu nhỏ nội dung bên trong banner */
+    .banner-content {
+        padding-left: 30px;
+        max-width: 80%;
+    }
+
+    #slider-title {
+        font-size: 1.8rem;
+        /* Thu nhỏ tiêu đề phim trên banner */
+    }
+
+    .movie-grid {
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .movie-card img {
+        height: 330px;
+        /* Thu nhỏ chiều cao ảnh poster */
+        border-radius: 6px;
+    }
+
+    .movie-info h3 {
+        font-size: 13px;
+        /* Chữ phim nhỏ lại */
+    }
+
+    /* 3. Thanh Booking Bar (Nếu cần nhỏ lại để khớp với banner) */
+    .booking-wrapper {
+        margin: -20px 20px 30px 20px;
+        /* Margin 2 bên 20px đồng bộ banner */
+    }
+
+    .booking-bar {
+        flex-direction: column;
+        padding: 15px;
+        gap: 10px;
+    }
+
+    .booking-item {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 10px;
+        width: 100%;
+    }
+
+    .promo-container {
+        margin: 0 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-banner {
+        height: 300px;
+        margin: 70px 15px 0 15px;
+    }
+
+    #slider-title {
+        font-size: 1.4rem;
+    }
+
+    .movie-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .movie-card img {
+        height: 180px;
+        /* Card siêu nhỏ cho màn hình nhỏ */
+    }
+}

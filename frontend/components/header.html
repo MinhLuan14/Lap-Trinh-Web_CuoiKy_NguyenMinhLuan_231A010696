@@ -11,6 +11,9 @@
                         <li><a href="../pages/user.html"><i class="fa-regular fa-user"></i> <span>USER</span></a></li>
                         <li><a href="../pages/setting.html"><i class="fa-solid fa-gear"></i> <span>SETTING</span></a>
                         </li>
+                        <li id="admin-link"><a href="../pages/admin.html"><i
+                                    class="fa-solid fa-people-roof"></i><span>ADMIN</span></a>
+                        </li>
 
                         <li class="mobile-only"><a href="../pages/movies.html"><i class="fa-solid fa-film"></i>
                                 <span>MOVIES</span></a></li>
@@ -31,8 +34,22 @@
         <div id="logo-center">
             <img src="../assets/img/LOGO 2.gif" alt="Logo">
         </div>
-        <div id="btn">
-            <a href="../pages/login.html">Login</a>
+        <div id="auth-section">
+            <div id="btn-login-wrapper">
+                <a href="../pages/login.html">Login</a>
+            </div>
+
+            <div id="user-profile-nav" style="display: none; align-items: center; gap: 10px;">
+                <div class="avatar-box"
+                    style="width: 35px; height: 35px; border-radius: 50%; overflow: hidden; border: 2px solid #f5b400;">
+                    <img id="nav-avatar" src="" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <span id="display-name-nav" style="color: white; font-weight: 600;"></span>
+                <button id="btn-logout"
+                    style="background: none; border: none; color: #ff4444; cursor: pointer; margin-left: 10px;">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                </button>
+            </div>
         </div>
     </header>
 </body>

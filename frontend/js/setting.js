@@ -1,57 +1,58 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const darkModeToggle = document.getElementById('dark-mode-toggle');
+const translations = {
+    en: {
+        "sys-settings": "System Settings",
+        "appearance": "Appearance",
+        "dark-mode": "Dark Mode",
+        "dark-mode-desc": "Save battery and protect your eyes",
+        "notifications": "Notifications",
+        "push-notif": "Push Notifications",
+        "push-notif-desc": "Get alerts for new movies and promos",
+        "language": "Language",
+        "display-lang": "Display Language",
+        "display-lang-desc": "Choose your preferred language",
+        "security": "Privacy & Security",
+        "change-pass": "Change Password",
+        "delete-acc": "Delete Account"
+    },
+    vi: {
+        "sys-settings": "Cài đặt hệ thống",
+        "appearance": "Giao diện",
+        "dark-mode": "Chế độ tối",
+        "dark-mode-desc": "Tiết kiệm pin và bảo vệ mắt",
+        "notifications": "Thông báo",
+        "push-notif": "Thông báo đẩy",
+        "push-notif-desc": "Nhận tin nhắn về phim mới và khuyến mãi",
+        "language": "Ngôn ngữ",
+        "display-lang": "Ngôn ngữ hiển thị",
+        "display-lang-desc": "Chọn ngôn ngữ bạn muốn sử dụng",
+        "security": "Bảo mật & Quyền riêng tư",
+        "change-pass": "Đổi mật khẩu",
+        "delete-acc": "Xóa tài khoản"
+    }
+};
 
-    // 1. Tải trạng thái đã lưu
-    const isDarkMode = localStorage.getItem('darkMode') === 'true';
-    darkModeToggle.checked = isDarkMode;
+const langSelect = document.getElementById('language-select');
 
-    // 2. Xử lý khi thay đổi Dark Mode
-    darkModeToggle.addEventListener('change', (e) => {
-        const enabled = e.target.checked;
-        localStorage.setItem('darkMode', enabled);
-        alert(enabled ? "Đã bật Chế độ tối" : "Đã tắt Chế độ tối");
-        // Ở đây bạn có thể thêm logic đổi biến CSS --background, --text...
-    });
+langSelect.addEventListener('change', (e) => {
+    const selectedLang = e.target.value;
+    updateLanguage(selectedLang);
+    // Lưu lựa chọn vào localStorage để các trang khác cũng dùng được
+    localStorage.setItem('preferred-lang', selectedLang);
 });
 
-function changePassword() {
-    const p = prompt("Nhập mật khẩu mới:");
-    if (p) {
-        alert("Đã cập nhật mật khẩu thành công!");
-    }
-}
-
-function deleteAccount() {
-    if (confirm("CẢNH BÁO: Bạn có chắc chắn muốn xóa tài khoản? Hành động này không thể hoàn tác.")) {
-        localStorage.clear();
-        window.location.href = "../index.html";
-    }
-} document.addEventListener('DOMContentLoaded', () => {
-    const langSelect = document.getElementById('language-select');
-
-    // 1. Tải ngôn ngữ đã lưu hoặc mặc định là 'vi'
-    const currentLang = localStorage.getItem('appLang') || 'vi';
-    langSelect.value = currentLang;
-    applyLanguage(currentLang);
-
-    // 2. Khi người dùng đổi ngôn ngữ
-    langSelect.addEventListener('change', (e) => {
-        const selectedLang = e.target.value;
-        localStorage.setItem('appLang', selectedLang);
-        applyLanguage(selectedLang);
-
-        // Tùy chọn: Load lại trang để các component khác (Header/Footer) cập nhật
-        // location.reload(); 
-    });
-});
-
-function applyLanguage(lang) {
-    // Tìm tất cả phần tử có data-key
+function updateLanguage(lang) {
     const elements = document.querySelectorAll('[data-key]');
     elements.forEach(el => {
         const key = el.getAttribute('data-key');
         if (translations[lang][key]) {
-            el.innerText = translations[lang][key];
+            el.textContent = translations[lang][key];
         }
     });
 }
+
+// Khi vừa load trang, kiểm tra xem trước đó đã chọn ngôn ngữ gì chưa
+window.onload = () => {
+    const savedLang = localStorage.getItem('preferred-lang') || 'en';
+    langSelect.value = savedLang;
+    updateLanguage(savedLang);
+};
