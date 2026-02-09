@@ -1,3 +1,16 @@
+Để thầy và hội đồng có thể trải nghiệm trực tiếp phiên bản demo, em cung cấp thông tin sau:
+Link demo: https://nguyenminhluan-231a010696.vercel.app/index.html
+Link GitHub: https://github.com/MinhLuan14/web_movies_CSN
+Tài khoản demo để đăng nhập:
+Admin:
+	email: 'admin@gmail.com'
+            password: 'admin123'
+Khách Hàng:
+	email: 'kh01@gmail.com'
+            password: '123'
+
+
+
 Đây là nội dung file README.md được tối ưu hóa để bạn nộp cho cả hai môn Lập trình Web (tập trung vào kỹ thuật, giao diện) và Phân tích thiết kế hệ thống (tập trung vào quy trình, sơ đồ, logic).
 
 🎬 Dự án PopCine - Hệ Thống Đặt Vé & Xem Phim Trực Tuyến
