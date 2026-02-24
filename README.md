@@ -1,6 +1,8 @@
 Để thầy và hội đồng có thể trải nghiệm trực tiếp phiên bản demo, em cung cấp thông tin sau:
 Link demo: https://nguyenminhluan-231a010696.vercel.app/index.html
-Link GitHub: https://github.com/MinhLuan14/web_movies_CSN
+Link GitHub: https://github.com/MinhLuan14/Lap-Trinh-Web_CuoiKy_NguyenMinhLuan_231A010696
+
+
 Tài khoản demo để đăng nhập:
 Admin:
 	email: 'admin@gmail.com'
